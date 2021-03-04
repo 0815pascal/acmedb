@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.placeholder-img{
+  border: none;
+  width: 200px;
+  height: 200px;
+}
+
+.employee-img{
+  object-fit: cover;
+  -o-object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.avatar {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.avatar .avatar-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+
+.avatar .avatar-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-transform: uppercase;
+  overflow: hidden;
+  background: #fff;
+  font-weight: 600;
+  color: #00acf0;
+}
+
+.avatar .avatar-text .initial-wrap {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar .avatar-text .initial-wrap > span {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.avatar .avatar-text:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(178, 230, 250, 0.5);
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.alert-dismissible .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: .75rem 1.25rem;
+  color: inherit;
+}
+
+button.close {
+  background-color: transparent;
+  border: 0;
+}
+
+.close{
+  float:right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}

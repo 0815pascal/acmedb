@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    command: --init-file /data/application/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass123
+      MYSQL_DATABASE: employeemanager
+      MYSQL_USER: user
+      MYSQL_password: pass123
+    ports:
+      - 3306:3306
+    volumes:
+      - acme_db_data:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8888:8080
+    depends_on:
+      - db
+
+  backend:
+    image: backend:latest
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/employeemanager?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING.DATASOURCE_USERNAME=root
+      - SPRING.DATASOURCE_PASSWORD=pass123
+
+  frontend:
+    image: frontend:latest
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+      - db
+
+volumes:
+  acme_db_data:
+
